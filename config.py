@@ -19,6 +19,7 @@ train_csfile = "./data/paracs-train.json"
 dev_csfile = "./data/paracs-dev.json"
 test_csfile = "./data/paracs-test.json"
 
+# Knowledge Graph configuration, shouldn't be changed if you use default KG data
 entity_size = 21471
 relation_size = 44
 graph_vector_size = 100
@@ -29,26 +30,24 @@ word2idx_file = "./data/word2idx.pkl"
 ent2idx_file = "./data/ent2idx.pkl"
 rel2idx_file = "./data/rel2idx.pkl"
 
-model_path = "./save/model.pt"
-
 device = "cuda:0"
 use_gpu = True
 debug = False
 vocab_size = 45000
 freeze_embedding = True
 
+# Hyperparameters for the model
 num_epochs = 30
 max_len = 400
 num_layers = 2
 hidden_size = 300
 embedding_size = 300
-lr = 0.02
+lr = 0.1
 batch_size = 32
 dropout = 0.3
 max_grad_norm = 5.0
-
 use_pointer = True
 beam_size = 10
 min_decode_step = 8
 max_decode_step = 30
-output_dir = "./result/pointer_maxout_ans"
+# output_dir = "./result/pointer_maxout_ans"

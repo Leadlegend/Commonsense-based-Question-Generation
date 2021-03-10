@@ -1,16 +1,18 @@
-# Neural Question Generation
-This is not official implementation for the paper [Paragraph-level Neural Question Generation with Maxout Pointer and Gated Self-attention Networks](https://www.aclweb.org/anthology/D18-1424).
- I implemented in Pytorch to reproduce similar result as the paper. You can find the checkpoint of pretrained model [here](https://drive.google.com/file/d/1j5eTo4CaY5gIT50BW-jGv1f0ZAhrYhES/view?usp=sharing)
+# Commonsense-based Neural Question Generation Model
+
 
 ## Dependencies
-This code is written in Python. Dependencies include
-* python >= 3.6
-* pytorch >= 1.4
-* nltk
+To train or test our model, you should install the following Python Packages:
+* python >= 3.7
+* pytorch >= 1.5
+* nltk(nltk_data files are also needed)
 * tqdm
 * [pytorch_scatter](https://github.com/rusty1s/pytorch_scatter)
 
-## Download data and Preprocess
+## Data Preprocess
+Data of Knowledge Graph has been already processed by us, the original KG data is included in `./data/resource.json`
+
+Due to the corpus size, we can not provide SQuAD data on the Github, but you can download the corpus as followed:
 ```bash
 mkdir squad
 wget http://nlp.stanford.edu/data/glove.840B.300d.zip -O ./data/glove.840B.300d.zip 
@@ -21,17 +23,35 @@ cd data
 python process_data.py
 ```
 ## Configuration
-You might need to change configuration in config.py. <br />
-If you want to train, change train = True  and set the gpu device in config.py
+You might need to change model configuration in ./config.py. <br />
+If you want to train with your gpu, please set the gpu device in config.py
+Other model configurations and hyper-parameters can also be customized
 
+## Usage
+To train the model, you can use the following commandlines:
+```bash
+python main.py --train (--model_path=<your_model_savepoint_path>)
+```
+The parameter `--model_path` is optional, if you want to train from scratch, then use `python main.py --train`
+
+Once you model gets the best development set result of current training process, the model parameters will be saved in `./save/train_<timestamp>/<epoch_number>_<dev_loss>`
+
+To test the model, you can use the following commandlines:
+```bash
+python main.py --model_path=<your_model_paras_path> --output_file=<output_file_path>
+```
 
 ## Evaluation from this [repository](https://github.com/xinyadu/nqg)
 ```bash
 cd qgevalcap
-python2 eval.py --out_file prediction_file --src_file src_file --tgt_file target_file
+python2 eval.py --out_file <prediction_file> --src_file <src_file> --tgt_file <target_file>
 ```
-## Results 
+
+## Currently Best Results
 |  <center>BLEU_1</center> |  <center>BLEU_2</center> |  <center>BLEU_3</center> | <center>BLEU_4</center> |
 |:--------|:--------:|--------:|--------:|
-|<center> 45.22 </center> | <center> 29.94 </center> |<center> 22.01</center>| <center>16.76</center>|
+|<center> 46.30 </center> | <center> 30.85 </center> |<center> 22.76 </center>| <center> 17.63 </center>|
+
+## Reference
+[Paragraph-level Neural Question Generation with Maxout Pointer and Gated Self-attention Networks](https://www.aclweb.org/anthology/D18-1424).
 

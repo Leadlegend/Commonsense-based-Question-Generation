@@ -5,7 +5,6 @@ import torch.nn.functional as F
 from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
 from torch_scatter import scatter_max
 from data_utils import UNK_ID
-import os
 
 INF = 1e12
 

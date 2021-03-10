@@ -1,14 +1,11 @@
 from trainer import Trainer
 from infenrence import BeamSearcher
-import config
 import argparse
-import os
 import warnings
 
 
 def main(args):
     if args.train:
-        # os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
         warnings.filterwarnings("ignore")
         trainer = Trainer(args)
         trainer.train()

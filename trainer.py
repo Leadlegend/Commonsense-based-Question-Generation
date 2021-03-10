@@ -1,7 +1,6 @@
 import os
 import pickle
 import time
-
 import numpy as np
 import torch
 import torch.nn as nn
@@ -51,7 +50,7 @@ class Trainer(object):
                                      batch_size=128,
                                      debug=config.debug)
 
-        train_dir = os.path.join("./save", "seq2seq")
+        train_dir = "./save"
         self.model_dir = os.path.join(
             train_dir, "train_%d" % int(time.strftime("%m%d%H%M%S")))
         if not os.path.exists(self.model_dir):
@@ -131,15 +130,6 @@ class Trainer(object):
             embed_mask[:, :, :, i] = mask_seq
 
         if config.use_gpu:
-            # src_seq = src_seq.cuda()
-            # ext_src_seq = ext_src_seq.cuda()
-            # src_len = src_len.cuda()
-            # trg_seq = trg_seq.cuda()
-            # ext_trg_seq = ext_trg_seq.cuda()
-            # tag_seq = tag_seq.cuda()
-            # cs_seq = cs_seq.cuda()
-            # mask_seq = mask_seq.cuda()
-            # embed_mask = embed_mask.cuda()
             src_seq = src_seq.to(config.device)
             ext_src_seq = ext_src_seq.to(config.device)
             src_len = src_len.to(config.device)
@@ -156,12 +146,9 @@ class Trainer(object):
             eos_trg = ext_trg_seq[:, 1:]
 
         logits = self.model(src_seq, tag_seq, cs_seq, mask_seq, embed_mask, ext_src_seq, trg_seq)
-
         batch_size, nsteps, _ = logits.size()
         preds = logits.view(batch_size * nsteps, -1)
-        #  暂且认为模型的输出经过这一步转化得到preds
         targets = eos_trg.contiguous().view(-1)
-        # 或者说是将二维张量展开为一维以便于计算loss？
         loss = self.criterion(preds, targets)
 
         return loss
