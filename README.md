@@ -1,5 +1,5 @@
 # Commonsense-based Neural Question Generation Model
-This is a seq2seq Question Generation model based on [this](https://github.com/seanie12/neural-question-generation#readme) to implement basic data interface and evaluation. 
+This is a seq2seq Question Generation model referred on [this](https://github.com/seanie12/neural-question-generation#readme) for implementation of basic data interface and evaluation. 
 However, the model was modified so that it can integrate extern information from Knowledge Graph to assist decoding, and we have got better test results.
 
 ## Dependencies
@@ -54,11 +54,11 @@ python2 eval.py --out_file <prediction_file> --src_file <src_file> --tgt_file <t
 |<center> 46.30 </center> | <center> 30.85 </center> |<center> 22.76 </center>| <center> 17.63 </center>|
 
 ## Reference
-[Improving Neural Story Generation by Targeted Common Sense Grounding](https://arxiv.org/abs/1908.09451)
-[Commonsense Knowledge Aware Conversation Generation with Graph Attention](https://www.ijcai.org/Proceedings/2018/0643.pdf)
-[Knowledge Aware Conversation Generation with Explainable Reasoning over Augmented Graphs](https://www.aclweb.org/anthology/D19-1187)
-[Answer-focused and Position-aware Neural Question Generation](https://www.aclweb.org/anthology/D18-1427/)
-[Paragraph-level Neural Question Generation with Maxout Pointer and Gated Self-attention Networks](https://www.aclweb.org/anthology/D18-1424)
-[Identifying Where to Focus in Reading Comprehension for Neural Question Generation](https://www.aclweb.org/anthology/D17-1219/)
+* [Improving Neural Story Generation by Targeted Common Sense Grounding](https://arxiv.org/abs/1908.09451)
+* [Commonsense Knowledge Aware Conversation Generation with Graph Attention](https://www.ijcai.org/Proceedings/2018/0643.pdf)
+* [Knowledge Aware Conversation Generation with Explainable Reasoning over Augmented Graphs](https://www.aclweb.org/anthology/D19-1187)
+* [Answer-focused and Position-aware Neural Question Generation](https://www.aclweb.org/anthology/D18-1427/)
+* [Paragraph-level Neural Question Generation with Maxout Pointer and Gated Self-attention Networks](https://www.aclweb.org/anthology/D18-1424)
+* [Identifying Where to Focus in Reading Comprehension for Neural Question Generation](https://www.aclweb.org/anthology/D17-1219/)
 
 
