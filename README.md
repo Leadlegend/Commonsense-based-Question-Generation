@@ -1,5 +1,5 @@
 # Commonsense-based Neural Question Generation Model
-This is a seq2seq Question Generation model referred on [this](https://github.com/seanie12/neural-question-generation#readme) for implementation of basic data interface and evaluation. 
+This is a seq2seq Question Generation model referred on [this repository](https://github.com/seanie12/neural-question-generation#readme) for implementation of basic data interface and evaluation. 
 However, the model was modified so that it can integrate extern information from Knowledge Graph to assist decoding, and we have got better test results.
 
 ## Dependencies
@@ -42,7 +42,7 @@ To test the model, you can use the following commandlines:
 python main.py --model_path=<your_model_paras_path> --output_file=<output_file_path>
 ```
 
-## Evaluation from this [repository](https://github.com/xinyadu/nqg)
+## Evaluation from [this repository](https://github.com/xinyadu/nqg)
 ```bash
 cd qgevalcap
 python2 eval.py --out_file <prediction_file> --src_file <src_file> --tgt_file <target_file>
