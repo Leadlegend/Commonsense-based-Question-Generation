@@ -51,7 +51,7 @@ python2 eval.py --out_file <prediction_file> --src_file <src_file> --tgt_file <t
 ## Currently Best Results
 |  <center>BLEU_1</center> |  <center>BLEU_2</center> |  <center>BLEU_3</center> | <center>BLEU_4</center> |
 |:--------|:--------:|--------:|--------:|
-|<center> 46.30 </center> | <center> 30.85 </center> |<center> 22.76 </center>| <center> 17.63 </center>|
+|<center> 46.30 </center> | <center> 30.85 </center> |<center> 22.76 </center>| <center> 17.47 </center>|
 
 ## Reference
 * [Improving Neural Story Generation by Targeted Common Sense Grounding](https://arxiv.org/abs/1908.09451)
